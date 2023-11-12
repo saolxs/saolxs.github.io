@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Add necessary head elements -->
+</head>
+<body>
+  <header>
+    <h1>Your Name</h1>
+    <p>Software Engineer</p>
+  </header>
+  
+  <section>
+    <h2>Resources</h2>
+    <!-- Your Resources Content Goes Here -->
+    <p>Upload a resource: <input type="file" id="fileInput" /></p>
+    <button onclick="uploadFile()">Upload</button>
+  </section>
+
+  <script>
+    function uploadFile() {
+      const input = document.getElementById('fileInput');
+      const file = input.files[0];
+      const formData = new FormData();
+      formData.append('file', file);
+
+      // Use fetch or other methods to upload the file to your server or cloud storage
+      // Example using fetch:
+      fetch('https://example.com/upload', {
+        method: 'POST',
+        body: formData,
+      })
+      .then(response => {
+        if (response.ok) {
+          alert('File uploaded successfully!');
+        } else {
+          alert('Failed to upload file.');
+        }
+      })
+      .catch(error => console.error('Error:', error));
+    }
+  </script>
+
+  <!-- Add more sections for other content -->
+</body>
+</html>
